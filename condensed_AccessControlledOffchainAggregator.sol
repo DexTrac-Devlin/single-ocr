@@ -4,9 +4,6 @@ pragma solidity ^0.7.1;
 
 //AccessControlledOffchainAggregator
 
-import "./OffchainAggregator.sol";
-import "./SimpleReadAccessController.sol";
-
 /**
  * @notice Wrapper of OffchainAggregator which checks read access on Aggregator-interface methods
  */
@@ -168,14 +165,6 @@ contract AccessControlledOffchainAggregator is OffchainAggregator, SimpleReadAcc
 }
 
 //OffchainAggregator
-import "./AccessControllerInterface.sol";
-import "./AggregatorV2V3Interface.sol";
-import "./AggregatorValidatorInterface.sol";
-import "./LinkTokenInterface.sol";
-import "./Owned.sol";
-import "./OffchainAggregatorBilling.sol";
-import "./TypeAndVersionInterface.sol";
-
 /**
   * @notice Onchain verification of reports from the offchain reporting protocol
 
@@ -1012,8 +1001,6 @@ contract OffchainAggregator is Owned, OffchainAggregatorBilling, AggregatorV2V3I
 }
 
 //SimpleReadAccessController
-import "./SimpleWriteAccessController.sol";
-
 /**
  * @title SimpleReadAccessController
  * @notice Gives access to:
@@ -1052,9 +1039,6 @@ interface AccessControllerInterface {
 }
 
 //AggregatorV2V3Interface
-import "./AggregatorInterface.sol";
-import "./AggregatorV3Interface.sol";
-
 interface AggregatorV2V3Interface is AggregatorInterface, AggregatorV3Interface
 {
 }
@@ -1147,10 +1131,6 @@ contract Owned {
 }
 
 //OffchainAggregatorBilling
-import "./AccessControllerInterface.sol";
-import "./LinkTokenInterface.sol";
-import "./Owned.sol";
-
 /**
  * @notice tracks administration of oracle-reward and gas-reimbursement parameters.
 
@@ -1944,9 +1924,6 @@ interface AggregatorV3Interface {
 }
 
 //SimpleWriteAccessController
-import "./Owned.sol";
-import "./AccessControllerInterface.sol";
-
 /**
  * @title SimpleWriteAccessController
  * @notice Gives access to accounts explicitly added to an access list by the
@@ -2054,9 +2031,6 @@ contract SimpleWriteAccessController is AccessControllerInterface, Owned {
 }
 
 //TestOffchainAggregator
-import "./AccessControlledOffchainAggregator.sol";
-import "./AccessControlTestHelper.sol";
-
 contract TestOffchainAggregator is AccessControlledOffchainAggregator {
   function testDecodeReport(
     bytes memory report
@@ -2158,8 +2132,6 @@ contract TestOffchainAggregator is AccessControlledOffchainAggregator {
 }
 
 //AccessControlTestHelper
-import "./AccessControlledOffchainAggregator.sol";
-
 contract AccessControlTestHelper {
 
   event Dummy(); // Used to silence warning that these methods are pure
@@ -2219,8 +2191,6 @@ contract AccessControlTestHelper {
 }
 
 //ExposedOffchainAggregator
-import "./OffchainAggregator.sol";
-
 // ExposedOffchainAggregator exposes certain internal OffchainAggregator
 // methods/structures so that golang code can access them, and we get
 // reliable type checking on their usage
@@ -2248,8 +2218,6 @@ contract ExposedOffchainAggregator is OffchainAggregator {
 }
 
 //TestValidator
-import "./AggregatorValidatorInterface.sol";
-
 contract TestValidator is AggregatorValidatorInterface {
   uint32 s_minGasUse;
   uint256 s_latestRoundId;
