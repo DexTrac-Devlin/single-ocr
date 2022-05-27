@@ -5,5 +5,5 @@ single file copy of chainlink's ocr aggregator
 ```
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.7.1;
-import "[@DexTrac-Devlin/single-ocr/condensed_AccessControlledOffchainAggregator.sol](https://github.com/DexTrac-Devlin/single-ocr/blob/main/condensed_AccessControlledOffchainAggregator.sol)";
+import "https://github.com/DexTrac-Devlin/single-ocr/blob/main/condensed_AccessControlledOffchainAggregator.sol";
 ```
